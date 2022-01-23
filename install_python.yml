@@ -1,0 +1,10 @@
+---
+- name: Install python in target node with ansible
+  hosts: node
+  become: true
+  gather_facts: no
+  pre_tasks:
+  - name: install python
+    raw: 'cat < /root/script.sh'
+    args:
+      executable: /bin/bash

@@ -1,0 +1,27 @@
+---
+- hosts: all
+  sudo: yes
+  tasks:
+  - name: installing awscli
+    yum:
+      name:
+        - awscli    
+  - name: terraform package installations      
+    yum:
+      name: 
+        - yum-utils
+
+  - name: Add repository 
+    yum_repository:
+      name: yum-config-manager --add-repo
+      description: config yum repo
+      baseurl: https://rpm.releases.hashicorp.com/AmazonLinux/
+
+  - name: adding latest version  
+    yum:
+      name: 
+        - terraform  
+      
+ 
+
+
